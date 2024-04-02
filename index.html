@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vacation Destination</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>Vacation Destination Wish list</h1>
+      <p>Found exciting places to visit on your next vacation? Use the form below to add them to your wish list</p>
+    </header>
+    <main>
+      <form id="destination_details_form">
+        <label for="name">Destination Name</label>
+        <input type="text" id="name" placeholder="provide a name for the destination" required />
+
+        <label for="location">Location Name</label>
+        <input type="text" id="location" placeholder="where is this destination located" />
+
+        <label for="photo">Photo</label>
+        <input type="url" id="photo" placeholder="provide a url for the photo" />
+
+        <label for="description">Destination Description</label>
+        <textarea id="description" placeholder="describe the destination"></textarea>
+        <button type="submit">Add to list</button>
+      </form>
+
+      <article>
+        <h2 id="title">Enter Destination Details</h2>
+        <div id="destinations_container">
+          <!--  <div class="card">
+            <img src="images/image1.jpg" />
+            <div class="card-body"></div>
+            <h3>Destination Name</h3>
+            <h4>Destination Location</h4>
+            <p class="card-text">Destination Description</p>
+            <button>remove</button>
+          </div> -->
+        </div>
+      </article>
+    </main>
+    <!--  <script src="script.js"></script> -->
+    <script>
+      var detailsForm = document.querySelector("#destination_form_details");
+      detailsForm.addEventListener("submit", handleFormSubmit);
+      function handleFormSubmit(event) {
+        event.preventDefault();
+
+        var destName = event.target.elements["name"].value;
+        var destLocation = event.target.elements["location"].value;
+        var destPhoto = event.target.elements["photo"].value;
+        var destDesc = event.target.elements["description"].value;
+
+        for (var i = 0; i < detailsForm.length; i++) {
+          detailsForm.elements[i].value = "";
+        }
+
+        var wishListContainer = document.getElementById("destinations_container");
+
+        if (wishListContainer.children.length === 0) {
+          document.getElementById("title").innerHTML = "My Wish List";
+        }
+      }
+
+      function createDestinationCard(name, location, photoURL, description) {
+        var card = document.createElement(div);
+        card.className = "card";
+
+        var img = document.createElement("img");
+        img.setAttribute("alt", name);
+
+        var constantPhotoUrl = "images/image1.jpg";
+      }
+    </script>
+  </body>
+</html>
