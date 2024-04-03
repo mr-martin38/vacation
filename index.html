@@ -73,6 +73,41 @@
         img.setAttribute("alt", name);
 
         var constantPhotoUrl = "images/image1.jpg";
+        if (photoURL.length === 0) {
+          img.setAttribute("src", constantPhotoUrl);
+        } else {
+          img.setAttribute("src", PhotoUrl);
+        }
+
+        card.appendChild(img);
+
+        var cardBody = document.createElement("div");
+        cardBody.className = "card-body";
+
+        var cardTitle = document.createElement("h3");
+        cardTitle.innerText = name;
+        cardBody.appendChild(cardTitle);
+
+        var cardSubtitle = document.createElement("h4");
+        cardSubtitle.innerText = location;
+        cardBody.appendChild(cardSubtitle);
+
+        if (description.length !== 0) {
+          var cardText = document.createElement("p");
+          cardText.className = "card-text";
+          cardText.innerText = description;
+          cardBody.appendChild(cardText);
+        }
+
+        var cardDeleteBtn = document.createElement("button");
+        cardDeleteBtn.innerText = "remove";
+
+        cardDeleteBtn.addEventListener("click", removeDestination);
+        cardBody.appendChild(cardDeleteBtn);
+
+        card.appendChild(cardBody);
+
+        return card;
       }
     </script>
   </body>
